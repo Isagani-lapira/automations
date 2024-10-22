@@ -10,4 +10,7 @@ class Users():
         alphabet = string.ascii_letters + string.digits
         return ''.join(secrets.choice(alphabet) for i in range(20))
     
-    
+    def get_random_word(self):
+        response = requests.get( "https://random-word-api.herokuapp.com/word",verify=False)
+
+        return response.json()[0].title()
